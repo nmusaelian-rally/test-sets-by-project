@@ -87,8 +87,6 @@ Ext.define('CustomApp', {
 		    store.removeAll();
 	    }
 	    
-	    
-	    console.log('testSets in upgradeGrid', testSets.length); //works
 	  
 	    var store = Ext.create('Rally.data.custom.Store', {
                 data: testSets,
@@ -136,7 +134,7 @@ Ext.define('CustomApp', {
 			    celldblclick: function( grid, td, cellIndex, record, tr, rowIndex){
 				var id = grid.getStore().getAt(rowIndex).get('FormattedID');
 				console.log('id', id);
-				that.getTestCases(id);      //to eventually build a grid of test cases associated with test set
+				that.getTestCases(id);     
 			    }
 		    }
 	    });
@@ -170,7 +168,7 @@ Ext.define('CustomApp', {
 	    var pendingTestCases = data.length;
 	    
 	     if (data.length ===0) {
-		this.createTestSetGrid(selectedTestSets);  //to force refresh on testset grid when there are no testsets in the iteration
+		this.createTestSetGrid(selectedTestSets);  
 	     }
 	     
 	     Ext.Array.each(data, function(selectedTestset){ 
